@@ -1,4 +1,21 @@
 INSERT INTO framework VALUES
     ('7478a67c-d045-40b8-9119-b4be0fd7f1e3', 'Spring Framework', 'Java', 'Spring makes it easy to create Java enterprise applications', true),
     ('78a35b54-99bd-4d2a-bdab-7adf559847d0', 'Laravel', 'PHP', 'Love beautiful code? We do too', true),
-	('79d85ed7-1990-4eb3-8d10-2ca9c2b828c7', 'Laravel', 'Python', 'An open source machine learning framework for everyone', false);
+	('79d85ed7-1990-4eb3-8d10-2ca9c2b828c7', 'Tensorflow', 'Python', 'An open source machine learning framework for everyone', false),
+	('b3d6d092-b4c6-40c4-9427-0b66013dcbe6', 'JUnit 5', 'Java', 'JUnit 5 is the next generation of JUnit', false),
+	('0642f9d6-6bfa-4885-932d-5b5cadf1c0aa', 'Nancy', 'C#', 'First of all, welcome to Nancy! Our main inspiration is the Sinatra framework for Ruby', true),
+	('12faed33-7f12-4ba9-b225-5bad166d5f18', 'Sinatra', 'Ruby', 'Sinatra is a DSL for quickly creating web applications in Ruby with minimal effort', true),
+	('455fb617-4e79-4fad-b4f6-58319169641b', 'Flask', 'Python', 'Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions', true),
+	('f67eb8ae-c6c3-432e-9616-d3be98b37ffa', 'Symphony', 'PHP', 'Symfony is a set of reusable PHP components', true),
+	('d83ad0d3-9eac-4bff-a4f1-23ecedf861ea', 'CakePHP', 'PHP', 'CakePHP is an open-source web, rapid development framework that makes building web applications simpler, faster and require less code', true),
+	('6fdf37a0-69b6-49e5-b143-0756477c43e2', 'Spark Framework', 'Java', 'Spark - A micro framework for creating web applications in Kotlin and Java 8 with minimal effort', true),
+	('502e535a-a638-46bf-ae04-b552a50f23b6', 'Jersey', 'Java', 'Developing RESTful Web services that seamlessly support exposing your data in a variety of representation media types', true),
+	('1a9cf019-eca0-49fc-9330-f9cc454d15a7', 'Micronaut', 'Java', 'A modern, JVM-based, full-stack framework for building modular, easily testable microservice and serverless applications', true),
+	('1ad4dad8-8eff-4994-86ac-a6d4eed81ff2', 'Grails Framework', 'Groovy', 'A powerful Groovy-based web application framework for the JVM built on top of Spring Boot', true),
+	('ce5f9c29-fa84-40cd-948e-edcabea4baf0', 'Ruby on Rails', 'Ruby', 'Imagine what you could build if you learned Ruby on Rails', true),
+	('f7d70fae-8d46-42ae-8cdb-75d7eb9026c4', 'Jekyll', 'Ruby', 'Transform your plain text into static websites and blogs', true),
+	('f768e106-ffd8-4560-a30e-f56996ea1b81', 'Quartz.NET', 'C#', 'Quartz.NET is a full-featured, open source job scheduling system that can be used from smallest apps to large scale enterprise systems', false),
+	('19f5d26a-4ac9-432e-8f8b-6738977770e9', 'Quartz Job Scheduler', 'Java', 'Quartz is a richly featured, open source job scheduling library that can be integrated within virtually any Java application', false),
+	('bce81dbc-c370-4b6f-9a22-bc1093e4ab60', 'Hibernate', 'Java', 'More than an ORM', false),
+	('60742b76-b6aa-4af8-bedc-da999d33e6e2', 'EF Core', 'C#', 'EF Core is a lightweight, extensible, and cross-platform version of Entity Framework', false),
+	('cdcaa315-8c22-4314-a0b7-bc1fca714760', 'Django', 'Python', 'The web framework for perfectionists with deadlines', true);

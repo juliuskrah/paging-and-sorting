@@ -1,0 +1,142 @@
+[
+	{
+		"id": "7478a67c-d045-40b8-9119-b4be0fd7f1e3",
+		"name": "Spring Framework",
+		"language": "Java",
+		"description": "Spring makes it easy to create Java enterprise applications",
+		"web": true
+	},
+	{
+		"id": "78a35b54-99bd-4d2a-bdab-7adf559847d0",
+		"name": "Laravel",
+		"language": "PHP",
+		"description": "Love beautiful code? We do too",
+		"web": true
+	},
+	{
+		"id": "79d85ed7-1990-4eb3-8d10-2ca9c2b828c7",
+		"name": "Tensorflow",
+		"language": "Python",
+		"description": "An open source machine learning framework for everyone",
+		"web": false
+	},
+	{
+		"id": "b3d6d092-b4c6-40c4-9427-0b66013dcbe6",
+		"name": "JUnit 5",
+		"language": "Java",
+		"description": "JUnit 5 is the next generation of JUnit",
+		"web": false
+	},
+	{
+		"id": "0642f9d6-6bfa-4885-932d-5b5cadf1c0aa",
+		"name": "Nancy",
+		"language": "C#",
+		"description": "First of all, welcome to Nancy! Our main inspiration is the Sinatra framework for Ruby",
+		"web": true
+	},
+	{
+		"id": "12faed33-7f12-4ba9-b225-5bad166d5f18",
+		"name": "Sinatra",
+		"language": "Ruby",
+		"description": "Sinatra is a DSL for quickly creating web applications in Ruby with minimal effort",
+		"web": true
+	},
+	{
+		"id": "455fb617-4e79-4fad-b4f6-58319169641b",
+		"name": "Flask",
+		"language": "Python",
+		"description": "Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions",
+		"web": true
+	},
+	{
+		"id": "f67eb8ae-c6c3-432e-9616-d3be98b37ffa",
+		"name": "Symphony",
+		"language": "PHP",
+		"description": "Symfony is a set of reusable PHP components",
+		"web": true
+	},
+	{
+		"id": "d83ad0d3-9eac-4bff-a4f1-23ecedf861ea",
+		"name": "CakePHP",
+		"language": "PHP",
+		"description": "CakePHP is an open-source web, rapid development framework that makes building web applications simpler, faster and require less code",
+		"web": true
+	},
+	{
+		"id": "6fdf37a0-69b6-49e5-b143-0756477c43e2",
+		"name": "Spark Framework",
+		"language": "Java",
+		"description": "Spark - A micro framework for creating web applications in Kotlin and Java 8 with minimal effort",
+		"web": true
+	},
+	{
+		"id": "502e535a-a638-46bf-ae04-b552a50f23b6",
+		"name": "Jersey",
+		"language": "Java",
+		"description": "Developing RESTful Web services that seamlessly support exposing your data in a variety of representation media types",
+		"web": true
+	},
+	{
+		"id": "1a9cf019-eca0-49fc-9330-f9cc454d15a7",
+		"name": "Micronaut",
+		"language": "Java",
+		"description": "A modern, JVM-based, full-stack framework for building modular, easily testable microservice and serverless applications",
+		"web": true
+	},
+	{
+		"id": "1ad4dad8-8eff-4994-86ac-a6d4eed81ff2",
+		"name": "Grails Framework",
+		"language": "Groovy",
+		"description": "A powerful Groovy-based web application framework for the JVM built on top of Spring Boot",
+		"web": true
+	},
+	{
+		"id": "ce5f9c29-fa84-40cd-948e-edcabea4baf0",
+		"name": "Ruby on Rails",
+		"language": "Ruby",
+		"description": "Imagine what you could build if you learned Ruby on Rails",
+		"web": true
+	},
+	{
+		"id": "f7d70fae-8d46-42ae-8cdb-75d7eb9026c4",
+		"name": "Jekyll",
+		"language": "Ruby",
+		"description": "Transform your plain text into static websites and blogs",
+		"web": true
+	},
+	{
+		"id": "f768e106-ffd8-4560-a30e-f56996ea1b81",
+		"name": "Quartz.NET",
+		"language": "C#",
+		"description": "Quartz.NET is a full-featured, open source job scheduling system that can be used from smallest apps to large scale enterprise systems",
+		"web": false
+	},
+	{
+		"id": "19f5d26a-4ac9-432e-8f8b-6738977770e9",
+		"name": "Quartz Job Scheduler",
+		"language": "Java",
+		"description": "Quartz is a richly featured, open source job scheduling library that can be integrated within virtually any Java application",
+		"web": false
+	},
+	{
+		"id": "bce81dbc-c370-4b6f-9a22-bc1093e4ab60",
+		"name": "Hibernate",
+		"language": "Java",
+		"description": "More than an ORM",
+		"web": false
+	},
+	{
+		"id": "60742b76-b6aa-4af8-bedc-da999d33e6e2",
+		"name": "EF Core",
+		"language": "C#",
+		"description": "EF Core is a lightweight, extensible, and cross-platform version of Entity Framework",
+		"web": false
+	},
+	{
+		"id": "cdcaa315-8c22-4314-a0b7-bc1fca714760",
+		"name": "Django",
+		"language": "Python",
+		"description": "The web framework for perfectionists with deadlines",
+		"web": true
+	}
+]

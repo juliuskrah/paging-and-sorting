@@ -1,0 +1,155 @@
+<!Doctype html>
+<html>
+<head>
+<title>Frameworks</title>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css"
+	rel="stylesheet">
+</head>
+<body class="bg-grey-light">
+	<div class="container">
+		<aside class="menu">
+			<p class="menu-label">Menu</p>
+		</aside>
+
+		<section class="hero">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="title">Frameworks</h1>
+					<h2 class="subtitle">Some popular Frameworks</h2>
+				</div>
+			</div>
+		</section>
+
+		<table class="table table is-striped loader" id="table">
+			<thead class="thead">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Language</th>
+					<th>Description</th>
+					<th>Supports Web</th>
+				</tr>
+			</thead>
+			<tbody class="tbody">
+				<tr>
+					<td>123</td>
+					<td>Spring</td>
+					<td>Java</td>
+					<td>Spring is cool</td>
+					<td>true</td>
+				</tr>
+				<tr>
+					<td>123</td>
+					<td>Spring</td>
+					<td>Java</td>
+					<td>Spring is cool</td>
+					<td>true</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav class="pagination" role="navigation" aria-label="pagination"
+			id="nav">
+		</nav>
+	</div>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.min.js" type="text/javascript"></script> -->
+	<script type="text/javascript">
+		function buildTable(url, element) {
+			element.classList.add("loader");
+			fetch(url).then(function(response) {
+				var json = response.json();
+				var dict = parseHeaders(response.headers.get('link'));
+				pagination(dict);
+				return json;
+			}).then(function(json) {
+				element.tBodies.item(0).innerHTML = '';
+				tableHelper(json, element);
+				element.classList.remove("loader");
+			});
+		}
+
+		function pagination(dict) {
+			var nav = document.getElementById("nav");
+			var table = document.getElementById("table");
+			nav.innerHTML = '';
+
+			var previous = document.createElement('a');
+			previous.appendChild(document.createTextNode('Previous'));
+			previous.classList.add("pagination-previous");
+
+			var nextPage = document.createElement('a')
+			nextPage.appendChild(document.createTextNode('Next page'));
+			nextPage.classList.add("pagination-next");
+			if (!dict.next) {
+				nextPage.setAttribute("disabled", "");
+			} else {
+				nextPage.addEventListener("click", function(){ buildTable(dict.next, table); });
+			}
+
+			if (!dict.prev) {
+				previous.setAttribute("disabled", "");
+			} else {
+				previous.addEventListener("click", function(){ buildTable(dict.prev, table); });
+			}
+
+			nav.appendChild(previous);
+			nav.appendChild(nextPage);
+		}
+
+		function parseHeaders(str) {
+			var dict = {};
+			str.split(',')
+					.forEach(
+							function(element) {
+								var arr = element.split(";");
+								dict[arr[1].replace(/['"]+/g, '').trim().split(
+										"=")[1]] = arr[0].replace(/[\<\>']+/g,
+										'');
+							});
+
+			return dict;
+		}
+
+		function tableHelper(payload, element) {
+			for (var i = 0; i < payload.length; i++) {
+				// Create table row
+				var tr = document.createElement('tr');
+
+				// Create row columns
+				var id = document.createElement('td');
+				var name = document.createElement('td');
+				var language = document.createElement('td');
+				var description = document.createElement('td');
+				var web = document.createElement('td');
+
+				// Add data to columns
+				id.appendChild(document.createTextNode(payload[i].id));
+				name.appendChild(document.createTextNode(payload[i].name));
+				language.appendChild(document
+						.createTextNode(payload[i].language));
+				description.appendChild(document
+						.createTextNode(payload[i].description));
+				web.appendChild(document.createTextNode(payload[i].web));
+
+				// Add columns to rows
+				tr.appendChild(id);
+				tr.appendChild(name);
+				tr.appendChild(language);
+				tr.appendChild(description);
+				tr.appendChild(web);
+
+				// Add row to tbody
+				element.tBodies.item(0).appendChild(tr);
+			}
+		}
+
+		document.addEventListener("DOMContentLoaded", function(event) {
+			var element = document.getElementById("table");
+			buildTable('/api/frameworks', element);
+
+			// Remove loader when page is fully rendered
+			element.classList.remove("loader");
+		});
+	</script>
+</body>
+</html>

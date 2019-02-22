@@ -2,8 +2,6 @@ package com.juliuskrah.table;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.UUID;
-
 import org.jetbrains.annotations.NotNull;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -13,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.testcontainers.containers.GenericContainer;
@@ -35,10 +35,11 @@ public class FrameworkRepositoryTest {
 	}
 
 	@Test
-	public void testFindOne() {
-		assertThat(repository
-				.findById(UUID.fromString("7478a67c-d045-40b8-9119-b4be0fd7f1e3")))
-		.containsInstanceOf(Framework.class);
+	public void testFindCountAndPageable() {
+		long count = repository.count();
+		assertThat(count).isEqualTo(20);
+		Page<Framework> first5Frameworks = repository.findAll(PageRequest.of(0, 5));
+		assertThat(first5Frameworks.getSize()).isEqualTo(5);
 	}
 
 	public static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
