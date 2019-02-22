@@ -1,0 +1,12 @@
+target/
+.mvn/
+.settings/
+.classpath
+.project
+mvnw
+mvnw.cmd
+README.md
+HELP.md
+.vscode/
+.gitignore
+docker-compose.yml

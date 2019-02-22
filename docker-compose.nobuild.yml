@@ -14,9 +14,6 @@ services:
   pagination:
     image: juliuskrah/pagination
     container_name: pagination
-    build:
-      context: .
-      dockerfile: ./src/main/docker/Dockerfile
     ports: 
       - 5050:8080
     environment: 
