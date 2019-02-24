@@ -33,6 +33,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/pagination_and_searching
       - SPRING_DATASOURCE_HIKARI_USERNAME=postgres
       - SPRING_DATASOURCE_HIKARI_PASSWORD=password
+      - SPRING_DATA_JEST_URI=http://elasticsearch:9200
     depends_on: 
       - postgres
       - elasticsearch

@@ -39,7 +39,7 @@ public class FrameworkApiResource {
 
 	@GetMapping("/_search/frameworks")
 	public ResponseEntity<List<Framework>> searchStaff(@RequestParam String query, @PageableDefault(size = 5) Pageable pageable) {
-		log.debug("REST request to search for a page of Staff for query {}", query);
+		log.info("REST request to search for a page of Frameworks for query {}", query);
 		Page<Framework> page = searchRepository.search(queryStringQuery(query), pageable);
 		HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page,
 				"/api/_search/frameworks");
