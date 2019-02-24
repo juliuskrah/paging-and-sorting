@@ -1,3 +1,8 @@
 spring:
   datasource:
     initialization-mode: always
+  data:    elasticsearch:      cluster-name: docker-cluster
+  autoconfigure:
+    exclude: > 
+      org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration,
+      org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration

@@ -7,6 +7,13 @@ spring:
     hikari:
       username: postgres
       password: password
-      host: localhost
-      port: 5432
-      database: pagination_and_searching
+  data:
+    jest:
+      uri: http://localhost:9200
+    elasticsearch:
+      clusterName: docker-cluster
+      clusterNodes: localhost:9300
+  autoconfigure:
+    exclude: > 
+      org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration,
+      org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration

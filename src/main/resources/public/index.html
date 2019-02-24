@@ -20,7 +20,8 @@
 				</div>
 			</div>
 		</section>
-
+		<input class="input is-rounded" type="text"
+			placeholder="Search for Framework..." oninput="search(this.value)">
 		<table class="table is-striped loader" id="table">
 			<thead class="thead">
 				<tr>
@@ -49,10 +50,8 @@
 			</tbody>
 		</table>
 		<nav class="pagination" role="navigation" aria-label="pagination"
-			id="nav">
-		</nav>
+			id="nav"></nav>
 	</div>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.min.js" type="text/javascript"></script> -->
 	<script type="text/javascript">
 		function buildTable(url, element) {
 			element.classList.add("loader");
@@ -67,7 +66,15 @@
 				element.classList.remove("loader");
 			});
 		}
-
+		
+		function search(query) {
+			var url = '/api/_search/frameworks?query=' + query;
+			if (query === '') 
+				url = '/api/frameworks';
+			var table = document.getElementById("table");
+			buildTable(url, table);
+		}
+		
 		function pagination(dict) {
 			var nav = document.getElementById("nav");
 			var table = document.getElementById("table");
@@ -83,13 +90,17 @@
 			if (!dict.next) {
 				nextPage.setAttribute("disabled", "");
 			} else {
-				nextPage.addEventListener("click", function(){ buildTable(dict.next, table); });
+				nextPage.addEventListener("click", function() {
+					buildTable(dict.next, table);
+				});
 			}
 
 			if (!dict.prev) {
 				previous.setAttribute("disabled", "");
 			} else {
-				previous.addEventListener("click", function(){ buildTable(dict.prev, table); });
+				previous.addEventListener("click", function() {
+					buildTable(dict.prev, table);
+				});
 			}
 
 			nav.appendChild(previous);
@@ -146,9 +157,6 @@
 		document.addEventListener("DOMContentLoaded", function(event) {
 			var element = document.getElementById("table");
 			buildTable('/api/frameworks', element);
-
-			// Remove loader when page is fully rendered
-			element.classList.remove("loader");
 		});
 	</script>
 </body>

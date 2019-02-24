@@ -2,8 +2,8 @@ package com.juliuskrah.table;
 
 import java.util.UUID;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FrameworkRepository extends PagingAndSortingRepository<Framework, UUID>{
+public interface FrameworkRepository extends JpaRepository<Framework, UUID>{
 
 }

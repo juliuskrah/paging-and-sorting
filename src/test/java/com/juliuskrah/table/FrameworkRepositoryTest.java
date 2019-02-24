@@ -16,6 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.elasticsearch.ElasticsearchContainer;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,15 +24,17 @@ import org.testcontainers.containers.GenericContainer;
 public class FrameworkRepositoryTest {
 	@Autowired
 	private FrameworkRepository repository;
-
 	@ClassRule
-	public static GenericContainer<?> postgres = new GenericContainer<>("postgres:9.6.8") //
+	public static ElasticsearchContainer elastic = new ElasticsearchContainer("elasticsearch:6.6.1");
+	@ClassRule
+	public static GenericContainer<?> postgres = new GenericContainer<>("postgres:11") //
 			.withExposedPorts(5432) //
 			.withEnv("POSTGRES_PASSWORD", "password") //
 			.withEnv("POSTGRES_USER", "postgres");
 
 	static {
 		postgres.start();
+		elastic.start();
 	}
 
 	@Test
@@ -53,7 +56,8 @@ public class FrameworkRepositoryTest {
 					"spring.datasource.hikari.username=postgres", //
 					"spring.datasource.hikari.password=password", //
 					"spring.datasource.hikari.url=" + jdbcUrl, //
-					"spring.datasource.url=" + jdbcUrl);
+					"spring.datasource.url=" + jdbcUrl,
+					"spring.data.jest.uri=http://" + elastic.getHttpHostAddress());
 			values.applyTo(configurableApplicationContext);
 		}
 	}

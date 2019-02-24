@@ -10,15 +10,21 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.elasticsearch.annotations.Document;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
+@Document(indexName = "framework", type = "framework", shards = 1, replicas = 0, refreshInterval = "-1")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Framework implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	@Column(columnDefinition = "BINARY(16)")
 	@Id
+	@org.springframework.data.annotation.Id
 	private UUID id;
 	@NotBlank
 	private String name;

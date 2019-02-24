@@ -21,22 +21,35 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class PaginationUtilTest {
 	private static ObjectMapper objectMapper;
+	private static List<Framework> frameworks;
 
 	@BeforeClass
-	public static void initialize() {
+	public static void initialize() throws JsonParseException, JsonMappingException, IOException {
 		objectMapper = new ObjectMapper();
+		Resource classpathResource = new ClassPathResource("frameworks.json");
+		frameworks = objectMapper.readValue(classpathResource.getInputStream(), //
+				new TypeReference<List<Framework>>() {});
 	}
 
 	@Test
-	public void testPaginationHeaders() throws JsonParseException, JsonMappingException, IOException {
-		Resource classpathResource = new ClassPathResource("frameworks.json");
-		List<Framework> frameworks = objectMapper.readValue(classpathResource.getInputStream(), //
-				new TypeReference<List<Framework>>() {});
+	public void testPaginationHeaders() {
+		
 		assertThat(frameworks).hasSize(20);
 		
 		Page<Framework> page = new PageImpl<>(frameworks, PageRequest.of(1, 5), 20);
 		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "http://example.com/api/frameworks");
 		assertThat(headers.getFirst("X-Total-Count")).isEqualTo("20");
 		assertThat(headers.getFirst(HttpHeaders.LINK)).contains("http://example.com/api/frameworks?page=0&size=5");
+	}
+	
+	@Test
+	public void testSearchPaginationHeaders() {
+		
+		assertThat(frameworks).hasSize(20);
+		
+		Page<Framework> page = new PageImpl<>(frameworks, PageRequest.of(1, 5), 20);
+		HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders("Java", page, "http://example.com/api/_search/frameworks");
+		assertThat(headers.getFirst("X-Total-Count")).isEqualTo("20");
+		assertThat(headers.getFirst(HttpHeaders.LINK)).contains("http://example.com/api/_search/frameworks?page=0&size=5&query=Java");
 	}
 }
